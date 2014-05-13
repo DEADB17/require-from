@@ -12,7 +12,9 @@ use case is testing.
 
 ## Instalation
 
-`npm install require-from`
+Usually this module is only needed for development.
+
+`npm install require-from --save-dev`
 
 
 ## Usage
