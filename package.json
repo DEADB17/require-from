@@ -1,0 +1,28 @@
+{
+  "name": "require-from",
+  "version": "0.9.0",
+  "description": "Export and require non-public Node.js module definitions",
+  "main": "index.js",
+  "devDependencies": {
+    "chai": "^1.9.1",
+    "mocha": "^1.18.2"
+  },
+  "scripts": {
+    "test": ""
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/DEADB17/require-from.git"
+  },
+  "bugs": "https://github.com/DEADB17/require-from/issues",
+  "keywords": [
+    "require",
+    "exports",
+    "modules",
+    "private",
+    "testing",
+    "tests"
+  ],
+  "author": "DEADB17 <DEADB17@gmail.com>",
+  "license": "GPL-3.0"
+}
