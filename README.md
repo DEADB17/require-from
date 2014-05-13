@@ -1,13 +1,13 @@
 # require-from
 
-Export and require non-public Node.js module definitions.
+Require non-public definitions from node modules.
 
 
 ## Motivation
 
 It is convenient to be able to expose internal module definitions that are not
-part of the public API without having to create a separate module.  
-A common use case is unit testing.
+part of the public API *without* having to create a separate module. A common
+use case is testing.
 
 
 ## Instalation
@@ -17,10 +17,9 @@ A common use case is unit testing.
 
 ## Usage
 
-1. Expose the definitions through `module` but instead of using the
-   `module.exports` object create one for your use case. e.g.:
-   `module.testExports`.
-2. From another module require the definition by
+1. Expose the desired definitions through `module` using a key other than
+   `exports`. e.g.: `module.testExports`.
+2. From another module require the definition through
    `requireFrom('module-exports-key', 'path-to-module')`. Where
    'module-exports-key' is a string matching the name of the object with the
    definitions (`testExports` above) and 'path-to-module' is a path following
@@ -29,27 +28,27 @@ A common use case is unit testing.
 
 ### Sample
 
-*exporter.js*
+*exporter.js*:
 ```js
-module.exports = 'regular exports';
 module.testExports = 'testExports';
+module.exports = 'regular exports';
 ```
 
-*importer.js*
+*importer.js*:
 ```js
 var requireFrom = require('require-from');
 
+console.log('requireFrom("testExports", "./exporter") ->',
+            requireFrom('testExports', './exporter'));
+
 console.log('requireFrom("exports", "./exporter") ->',
             requireFrom('exports', './exporter'));
-
-console.log('requireFrom("testExports", "./exporter") - >',
-            requireFrom('testExports', './exporter'));
 ```
 
-*output*
+*output*:
 ```
+requireFrom("testExports", "./exporter") -> testExports
 requireFrom("exports", "./exporter") -> regular exports
-requireFrom("testExports", "./exporter") - > testExports
 ```
 
 

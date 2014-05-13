@@ -1,7 +1,7 @@
 {
   "name": "require-from",
-  "version": "0.9.0",
-  "description": "Export and require non-public Node.js module definitions",
+  "version": "0.9.1",
+  "description": "Require non-public definitions from node modules",
   "main": "index.js",
   "devDependencies": {
     "chai": "^1.9.1",
