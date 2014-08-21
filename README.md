@@ -10,7 +10,7 @@ part of the public API *without* having to create a separate module. A common
 use case is testing.
 
 
-## Instalation
+## Installation
 
 Usually this module is only needed for development.
 
