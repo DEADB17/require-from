@@ -5,10 +5,10 @@
   "main": "index.js",
   "devDependencies": {
     "chai": "^1.9.1",
-    "mocha": "^1.18.2"
+    "mocha": "^1.21.4"
   },
   "scripts": {
-    "test": ""
+    "test": "node_modules/mocha/bin/mocha"
   },
   "repository": {
     "type": "git",
