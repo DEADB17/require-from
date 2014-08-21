@@ -67,4 +67,4 @@ var m2 = requireFromTest('./m2');
 --------------------------------------------------------------------------------
 
 *require-from*  Copyright  2014 © DEADB17 <DEADB17@gmail.com>  
-Distributed under the [GNU GPLv3 license](LICENSE).
+Distributed under the [MIT license](LICENSE).
