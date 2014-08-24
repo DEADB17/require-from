@@ -30,7 +30,7 @@ module.exports = function (key, mod, path) {
     }
 
     var res;
-    if (module.children.some(function (it) {
+    if (module.parent.children.some(function (it) {
         res = it;
         return it.exports === moduleExports;
     })) {
