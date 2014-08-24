@@ -1,20 +1,28 @@
 /* jshint node:true */
 
+'use strict';
+
 var assert = require('assert');
 var pathLib = require('path');
 
 
-module.exports = function (key, path) {
-    assert(typeof key === 'string', 'key must be a string');
-    assert(key, 'missing key');
+module.exports = function (key, mod, path) {
+    var argLen = arguments.length;
+    if (argLen === 2) {
+        path = mod;
+        mod  = undefined;
+    }
+    var isRel = path.charAt(0) === '.';
+
+    assert(typeof key === 'string', 'export key must be a string');
+    assert(key, 'missing export key');
     assert(typeof path === 'string', 'path must be a string');
     assert(key, 'missing path');
 
-    var isRel = path.charAt(0) === '.';
     var moduleExports;
-
     if (isRel) {
-        var parent = pathLib.dirname(module.parent.filename);
+        assert(mod, 'missing module');
+        var parent = pathLib.dirname(mod.filename);
         var normalized = pathLib.resolve(parent, path);
         moduleExports = require(normalized);
     } else {

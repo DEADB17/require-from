@@ -5,7 +5,7 @@
 var requireFrom = require('../../../');
 
 module.testExports = {
-    top: requireFrom('topExports', '../'),
+    top: requireFrom('topExports', module, '../'),
     inner: 'inner testExports value',
-    bottom: requireFrom('bottomExports', './bottom')
+    bottom: requireFrom('bottomExports', module, './bottom').bottom
 };

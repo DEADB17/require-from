@@ -22,10 +22,12 @@ Usually this module is only needed for development.
 1. Expose the desired definitions through `module` using a key other than
    `exports`. e.g.: `module.testExports`.
 2. From another module require the definition through
-   `requireFrom('module-exports-key', 'path-to-module')`. Where
-   'module-exports-key' is a string matching the name of the object with the
-   definitions (`testExports` above) and 'path-to-module' is a path following
-   the [Node.js require API](http://nodejs.org/api/modules.html#modules_module_require_id).
+   `requireFrom('exports-key', module, 'path-to-module')`. Where\
+   `'exports-key'` is a string matching the name of the object with the
+   definitions (`testExports` above).\
+   `module` is the Node provided object representing the current module.\
+   `'path-to-module'` is a path following the
+   [Node.js require API](http://nodejs.org/api/modules.html#modules_module_require_id).
 
 
 ### Sample
@@ -40,17 +42,17 @@ module.exports = 'regular exports';
 ```js
 var requireFrom = require('require-from');
 
-console.log('requireFrom("testExports", "./exporter") ->',
-            requireFrom('testExports', './exporter'));
+console.log('requireFrom("testExports", module, "./exporter") ->',
+            requireFrom('testExports', module, './exporter'));
 
-console.log('requireFrom("exports", "./exporter") ->',
-            requireFrom('exports', './exporter'));
+console.log('requireFrom("exports", module, "./exporter") ->',
+            requireFrom('exports', module, './exporter'));
 ```
 
 *output*:
 ```
-requireFrom("testExports", "./exporter") -> testExports
-requireFrom("exports", "./exporter") -> regular exports
+requireFrom("testExports", module, "./exporter") -> testExports
+requireFrom("exports", module, "./exporter") -> regular exports
 ```
 
 
@@ -59,7 +61,7 @@ requireFrom("exports", "./exporter") -> regular exports
 Define a naming convention and use `bind`:
 
 ```javascript
-var requireFromTest = require('require-from').bind(undefined, 'testExports');
+var requireFromTest = require('require-from').bind(undefined, 'testExports', module);
 var m1 = requireFromTest('./m1');
 var m2 = requireFromTest('./m2');
 ```
