@@ -25,15 +25,18 @@ below) to correctly handle relative imports. Users of earlier versions should up
 
 ## Usage
 
-1. Expose the desired definitions through `module` using a key other than
-   `exports`. e.g.: `module.testExports`.
-2. From another module require the definition through
-   `requireFrom('exports-key', module, 'path-to-module')`. Where  
-   `'exports-key'` is a string matching the name of the object with the
-   definitions (`testExports` above).  
-   `module` is the Node provided object representing the current module.  
-   `'path-to-module'` is a path following the
-   [Node.js require API](http://nodejs.org/api/modules.html#modules_module_require_id).
+1.  Expose the desired definitions through `module` using a key other than
+    `exports`. e.g.: `module.testExports`.
+2.  From another module require the definition through
+    `requireFrom('exports-key', module, 'path-to-module')`. Where
+
+    `'exports-key'` is a string matching the name of the object with the
+    definitions (`testExports` above).
+
+    `module` is the Node provided object representing the current module.
+
+    `'path-to-module'` is a path following the
+    [Node.js require API](http://nodejs.org/api/modules.html#modules_module_require_id).
 
 
 ### Sample
