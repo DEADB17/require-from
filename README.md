@@ -17,6 +17,12 @@ Usually this module is only needed for development.
 `npm install require-from --save-dev`
 
 
+### Notice to `0.9.x` users
+
+Version `0.10.0` requires passing an additional parameter (`module`, see usage
+below) to correctly handle relative imports. Users of earlier versions should upgrade.
+
+
 ## Usage
 
 1. Expose the desired definitions through `module` using a key other than

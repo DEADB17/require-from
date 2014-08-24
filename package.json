@@ -1,6 +1,6 @@
 {
   "name": "require-from",
-  "version": "0.9.3",
+  "version": "0.10.0",
   "description": "Require non-public definitions from node modules",
   "main": "index.js",
   "devDependencies": {
